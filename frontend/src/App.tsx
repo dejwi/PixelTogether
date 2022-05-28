@@ -47,7 +47,7 @@ const App: React.FC = () => {
   const click = (data: cell) => {
     const index = data.x+data.y*columns;
     const _board = [...board];
-    _board[index].color = data.color;
+    _board[index].color = color;
     setBoard(_board);
     socket.emit('draw', {index, color});
   };
