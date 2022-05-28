@@ -13,7 +13,7 @@ io.on('connection', socket => {
    io.to(roomId).emit('userChange', {count: io.sockets.adapter.rooms.get(roomId)?.size});
 
    socket.on('draw', data => {
-      io.to(roomId).emit('draw', data);
+      socket.broadcast.to(roomId).emit('draw', data);
    });
 
     socket.on("disconnect", () => {
