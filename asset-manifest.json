@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/PixelTogether/static/css/main.5f7f136f.css",
-    "main.js": "/PixelTogether/static/js/main.e1e14112.js",
+    "main.css": "/PixelTogether/static/css/main.8bccc84e.css",
+    "main.js": "/PixelTogether/static/js/main.f864367d.js",
     "index.html": "/PixelTogether/index.html",
-    "main.5f7f136f.css.map": "/PixelTogether/static/css/main.5f7f136f.css.map",
-    "main.e1e14112.js.map": "/PixelTogether/static/js/main.e1e14112.js.map"
+    "main.8bccc84e.css.map": "/PixelTogether/static/css/main.8bccc84e.css.map",
+    "main.f864367d.js.map": "/PixelTogether/static/js/main.f864367d.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f7f136f.css",
-    "static/js/main.e1e14112.js"
+    "static/css/main.8bccc84e.css",
+    "static/js/main.f864367d.js"
   ]
 }
