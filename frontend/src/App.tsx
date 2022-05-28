@@ -58,6 +58,7 @@ const App: React.FC = () => {
               <div className={`grid w-[22rem] h-[22rem] border-neutral-300 border-[1px]`} style={{gridTemplateColumns: `repeat(${columns},1fr)`}}>
                 {board.map(e => <div onClick={()=>click(e)} key={`x${e.x}y${e.y}${e.color}`} style={{background: e.color}} ></div>)}
               </div>
+              <span className='text-sm'>Click on board above to draw!</span>
             </div> }
 
       </div>
