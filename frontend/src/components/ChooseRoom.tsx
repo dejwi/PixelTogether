@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {motion} from "framer-motion";
 
 interface props {
     setRoom: (val: string) => void
@@ -13,7 +14,8 @@ const ChooseRoom: React.FC<props> = ({setRoom}) => {
         setRoom(roomId);
     };
 
-    return (<div>
+    return (<motion.div initial={{y: -40, opacity: 0}} animate={{y:0, opacity:1}} exit={{y: 20, opacity:0, transition:{ type: 'spring', duration:0.3}}}
+            transition={{type:'tween', duration: 0.4, ease:'easeOut'}}>
         <form onSubmit={submit} className='flex flex-col gap-5'>
             <label className='flex flex-col items-center'>
                 Enter room ID:
@@ -22,7 +24,7 @@ const ChooseRoom: React.FC<props> = ({setRoom}) => {
             </label>
             <button type='submit'>Submit</button>
         </form>
-    </div>)
+    </motion.div>)
 };
 
 export default ChooseRoom;
