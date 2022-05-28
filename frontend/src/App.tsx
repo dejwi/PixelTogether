@@ -32,7 +32,7 @@ const App: React.FC = () => {
   useEffect(()=> {
     if(!roomId) return;
     // CHANGE TO LOCALHOST WHEN TESTING
-    const _socket = io('https://pixeltogether.herokuapp.com', {query: {roomId} });
+    const _socket = io(`${process.env.REACT_APP_BACKENDURL}`, {query: {roomId} });
     _socket.on('draw', (data: {index: number, color: string}) => {
       const _board = [...board];
       _board[data.index].color = data.color;
