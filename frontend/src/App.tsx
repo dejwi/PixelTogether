@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import ChooseRoom from "./components/ChooseRoom";
 
 interface cell {
   x: number,
@@ -9,6 +10,7 @@ interface cell {
 const App: React.FC = () => {
   const [board, setBoard] = useState<cell[]>([]);
   const [color, setColor] = useState('#000000');
+  const [roomId, setRoomId] = useState('');
 
   const rows = 30;
   const columns = 30;
@@ -31,10 +33,14 @@ const App: React.FC = () => {
   };
 
   return ( <div className='flex flex-col items-center justify-center h-screen bg-neutral-200'>
-        <input type='color' onChange={e=>setColor(e.target.value)}/>
-    <div className={`grid w-[30rem] h-[30rem] `} style={{gridTemplateColumns: `repeat(${columns},1fr)`}}>
-      {board.map(e => <div onClick={()=>click(e)} key={`x${e.x}y${e.y}${e.color}`} style={{background: e.color}} ></div>)}
-    </div>
+        {!roomId ? <ChooseRoom setRoom={(val: string)=>setRoomId(val)}/> :
+            <div className='flex flex-col items-center'>
+              <input type='color' onChange={e=>setColor(e.target.value)}/>
+              <div className={`grid w-[30rem] h-[30rem] `} style={{gridTemplateColumns: `repeat(${columns},1fr)`}}>
+                {board.map(e => <div onClick={()=>click(e)} key={`x${e.x}y${e.y}${e.color}`} style={{background: e.color}} ></div>)}
+              </div>
+            </div> }
+
       </div>
   );
 };
