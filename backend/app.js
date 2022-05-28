@@ -20,7 +20,7 @@ io.on('connection', socket => {
         io.to(roomId).emit('userChange', {count: io.sockets.adapter.rooms.get(roomId)?.size || 0});
     });
 });
-
-server.listen(4000, () =>
+const PORT = process.env.PORT || 4000;
+server.listen(PORT, () =>
     console.log('Server listening on port 4000')
 );
