@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ChooseRoom from "./components/ChooseRoom";
+import {io} from 'socket.io-client';
 
 interface cell {
   x: number,
@@ -11,6 +12,7 @@ const App: React.FC = () => {
   const [board, setBoard] = useState<cell[]>([]);
   const [color, setColor] = useState('#000000');
   const [roomId, setRoomId] = useState('');
+  const [socket, setSocket] = useState<any>();
 
   const rows = 30;
   const columns = 30;
@@ -25,11 +27,20 @@ const App: React.FC = () => {
     setBoard(tempBoard);
   },[]);
 
+  useEffect(()=> {
+    if(!roomId) return;
+    const _socket = io('http://localhost:4000', {query: {roomId} });
+    _socket.on('draw', (data: {index: number, color: string}) => {
+      const _board = [...board];
+      _board[data.index].color = data.color;
+      setBoard(_board);
+    });
+    setSocket(_socket);
+  },[roomId])
+
   const click = (data: cell) => {
     const index = data.x+data.y*columns;
-    const _board = [...board];
-    _board[index].color = color;
-    setBoard(_board);
+    socket.emit('draw', {index, color});
   };
 
   return ( <div className='flex flex-col items-center justify-center h-screen bg-neutral-200'>
