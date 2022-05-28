@@ -12,5 +12,7 @@ Small react & express fullstackapp, uses socket.io for data transport
 ## How to run locally
 - backend (def: http://localhost:4000)
   - http://localhost:3000 is already in cors
+  - npm run start or watch (in its directory)
 - frontend (def: http://localhost:3000)
   - add .env file with REACT_APP_BACKENDURL
+  - npm run start (in its directory)
