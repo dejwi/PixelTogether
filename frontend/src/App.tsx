@@ -49,13 +49,13 @@ const App: React.FC = () => {
     socket.emit('draw', {index, color});
   };
 
-  return ( <div className='flex flex-col items-center justify-center h-screen bg-neutral-200'>
+  return ( <div className='flex flex-col items-center justify-center h-screen bg-neutral-200 font-[Poppins]'>
         <h1 className='text-5xl absolute top-2'>PixelTogether</h1>
         {!!roomId && <span>Users connect in room: {userCount}</span>}
         {!roomId ? <ChooseRoom setRoom={(val: string)=>setRoomId(val)}/> :
             <div className='flex flex-col items-center'>
               <input type='color' onChange={e=>setColor(e.target.value)}/>
-              <div className={`grid w-[22rem] h-[22rem]`} style={{gridTemplateColumns: `repeat(${columns},1fr)`}}>
+              <div className={`grid w-[22rem] h-[22rem] border-neutral-300 border-[1px]`} style={{gridTemplateColumns: `repeat(${columns},1fr)`}}>
                 {board.map(e => <div onClick={()=>click(e)} key={`x${e.x}y${e.y}${e.color}`} style={{background: e.color}} ></div>)}
               </div>
             </div> }

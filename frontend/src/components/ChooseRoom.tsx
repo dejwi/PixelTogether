@@ -16,8 +16,9 @@ const ChooseRoom: React.FC<props> = ({setRoom}) => {
     return (<div>
         <form onSubmit={submit} className='flex flex-col gap-5'>
             <label className='flex flex-col items-center'>
-                Enter your room ID:
+                Enter room ID:
                 <input type='text' placeholder='Room ID....' value={roomId} onChange={e=>setRoomId(e.target.value)}/>
+                <span className='text-xs text-neutral-500'>Share it to your friends!</span>
             </label>
             <button type='submit'>Submit</button>
         </form>
