@@ -9,6 +9,7 @@ Small react & express fullstackapp, uses socket.io for data transport
  <sub><sup>small color bug from exporting to gif</sup></sub>
 
 ## How to run locally
+- install dependencies at /backend & /frontend
 - backend (def: http://localhost:4000)
   - http://localhost:3000 is already in cors
   - npm run start or watch (in its directory)
